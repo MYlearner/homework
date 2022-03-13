@@ -1,0 +1,218 @@
+注意：
+我们首先实现核心功能，暂时不实现，故在主界面暂时取消“躲避模式”模块，
+游戏界面暂时取消“提示”以及”上一步“模块，
+在游戏界面右上边增加”步数“模块，
+//暂且取消排行榜界面“下一页”按钮，
+//暂且设置关卡数为4关，
+
+
+全局变量//更新鼠标信息以及鼠标的赋值
+int map1[i][j],map2[i][j],map3[i][j].map4[i][j](1为墙，2为地板，3为箱子，4为目标位置）
+int width=//界面框宽度
+int length=//界面框长度
+int PlayerLeven//玩家最高打到第多少关了
+主菜单界面各按钮方块参数（如开始游戏按钮，横坐标，纵坐标，长，宽）
+struct start{主界面开始游戏按钮横坐标
+int start_x;开始游戏按钮纵坐标，
+int start_y;开始游戏按钮
+int start_length;开始游戏按钮长
+int start_width;开始游戏按钮宽
+}
+struct leven{//主界面选择关卡按钮参数
+int leven_x;
+int leven_y;
+int leven_length;
+int leven_width;
+}
+struct score{//主界面游戏排行榜按钮参数
+int score_x;
+int score_y;
+int score_length;
+int score_width;
+}
+struct help{//主界面游戏说明按钮参数，
+int  help_x;
+int help_y;
+int help_length;
+int help_width;
+}
+
+struct exit{//主界面退出游戏按钮参数
+int  exit_x;
+int exit_y;
+int exit_length;
+int exit_width;
+}
+
+struct musicon{//主界面播放音乐按钮参数，
+int  musicon_x;
+int musicon_y;
+int musicon_length;
+int musicon_width;
+}
+
+struct musicoff{//主界面关闭音乐按钮参数，
+int  musicoff_x;
+int musicoff_y;
+int musicoff_length;
+int musicoff_width;
+}
+struct gamereturn{//游戏界面返回按钮参数，
+int  return_x;
+int return_y;
+int return_length;
+int return_width;
+}
+struct playerstep{
+int step_x;//显示玩家步数的位置横坐标
+int step_y;//显示玩家步数的位置纵坐标
+}
+struct selectleven{//关卡选择界面各关卡按钮参数
+int l1_x;//第一关按钮横坐标
+int l1_y;//第一关按钮纵坐标
+int l1_length;//按钮长度
+int l1_width;//按钮宽度
+int  l2_x;以下类同
+int l2_y;
+int l2_length;
+int l2_width;
+int  l3_x;
+int l3_y;
+int l3_length;
+int l3_width;
+int  l4_x;
+int l4_y;
+int l4_length;
+int l4_width;
+}
+struct selectretrun{//选择关卡界面返回按钮参数，
+int  select_x;
+int select_y;
+int select_length;
+int select_width;
+}
+
+struct showscore{//排行榜界面返回按钮参数
+int  showscore_x;
+int showscore_y;
+int showscore_length;
+int showscore_width;
+}
+struct showhelp{//游戏说明界面返回按钮参数
+int  showhelp_x;
+int showhelp_y;
+int showhelp_length;
+int showhelp_width;
+}
+
+int playerscore[4]={500，500，500，500};//排行榜记录存档，初始化为5 00；
+int box[4]={a1,a2,a3,a4]
+int goal[4]={a1,a2,a3,a4]
+struct playersize
+{//玩家位置;
+int x;
+int y;
+}
+char PlayerInput玩家输入wasd；
+int step=0;//玩家本局走的步数
+int selectleven;玩家在选择关卡界面选择的关卡第1，2，3，4关
+int moveway=0，1，2，3，4
+fun1:void ShowMenu();
+{
+展示菜单界面
+}
+fun2:void NormalGameStart();
+{
+游戏数据初始化，如step，地图
+展示游戏开始界面//根据PlayerLeven初始化对应关卡游戏界面。另外，在游戏界面又上方增加展示游戏界面增加显示步数初始为0。
+}
+fun3:void SelectGameStart();
+{
+游戏数据初始化，如step，地图
+展示游戏开始界面//根据selectleven初始化对应关卡游戏界面。另外，在游戏界面又上方增加展示游戏界面增加显示步数初始为0。
+}
+fun3:void SelectGameLeven();
+{
+展示选择游戏关卡界面
+}
+fun4:void ShowGameScore();
+{
+展示游戏排行榜界面
+}
+fun5:void ShowGameHelp();
+{
+展示游戏说明界面
+}
+fun6:void GetInput();
+{
+接收玩家输入(用kbhit和getch函数）并赋值给PlayerInput
+}
+fun7:void GetMouse();
+{
+接收鼠标点击消息，并将其赋值给
+} 
+
+
+fun1:void DoMouse1();
+{
+根据鼠标在主菜单界面点击，判断进入哪个功能，并调用相应函数
+}
+fun2: void DoMouse2();
+{
+根据鼠标在选择关卡界面点击位置，判断玩家如果点击的是返回，则调用主菜单函数，
+如果点击的是关卡，判断是否已经被解锁，如果已经被解锁，
+将玩家选择的关卡赋值给selectleven，
+并调用SelectGameStart（）；
+}
+fun3: void DoMouse3();
+{
+根据鼠标在游戏界面点击位置，判断是否点击返回，若是，调用主菜单函数
+}
+fun4: void DoMouse4();
+{
+根据鼠标在排行榜界面点击位置，判断是否点击返回，若是，调用主菜单函数
+}
+fun5: void DoMouse5();
+{
+根据鼠标在游戏说明界面点击，判断是否点击返回，若是，调用主菜单函数
+}
+fun6: 绘制游戏地图，（给上面全局变量四个map数组赋值）1为墙，2为地板，3为箱子，4为目标位置，
+可以把箱子多放几个，不然显得太容易,并将每一关箱子数赋值给box数组以及goal数组，
+fun7:void FindPlayer()
+{
+不通关卡，通过遍历数组，寻找玩家位置，并赋值给playersize；
+}
+fun8 void ReNew()
+{
+在移动后更新游戏界面中的步数，
+}
+fun9 :void DefineMove();
+{
+判断玩家移动是否合法，即向wasd方向移动是否为墙，如果是墙，令moveway=0，如果不是，
+判断是否为地板，是的话令moveway=1，是否为箱子，如果是箱子，是否能推动，
+如果不能推动，令moveway=2，如果能推动，令moveway=3，
+如果人下一步走的是目标位置，令moveway=4，
+}
+fun :void Move()
+{
+根据DefineMove中的说明，即根据moveway的值进行相应操作，
+如果是0，函数之间返回结束，
+如果是1，判断是正常走还是从目标位置走到正常地板，改变playersize对应横纵左标的值，自行判断是否需要改变map中的值，
+并将人物图片与地板图片换位置或者更新目标位置图片与人位置图片，step值加1，
+如果是2，函数之间返回结束，
+如果是3，判断箱子是否本身就处在目标位置，如果是，是否将箱子推出目标位置，推出的话，对应剩余箱子数goal[i]++，或者仍在目标位置，
+并自行判断是否需要改变map中的值，以及对应图片位置调换，如果不是，判断是否推到目标位置，若是，goal[i]--;(剩余箱子数），并进行类似前面的对应操作，如果不是，进行对应操作，step++等等
+如果是4，进行对应操作，step++等等
+}
+
+fun10 void DefineSuccess();
+{
+判断是否成功；(通过判断剩余未到达目标的箱子数是否为0），
+若通过，调用ReNewScore()函数，如果现在关卡等于playerleven，playerleven++，
+selectleven++；如果selectleven《=4，调用SelectGameStart()函数；
+}
+fun11 void ReNewScore()
+{
+更新排行榜（通过比较本次步数与存档中记录的值，进行更新）
+}
+fun12 设置各界面参数（最上面的struct）

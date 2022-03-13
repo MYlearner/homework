@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    int ssize=s.size();
+    int sum=0;
+    
+        sum+=int(s[0]-'0');
+        sum+=int(s[2]-'0')*2;
+        sum+=int(s[3]-'0')*3;
+        sum+=int(s[4]-'0')*4;
+        sum+=int(s[6]-'0')*5;
+        sum+=int(s[7]-'0')*6;
+        sum+=int(s[8]-'0')*7;
+        sum+=int(s[9]-'0')*8;
+        sum+=int(s[10]-'0')*9;
+        sum=sum%11;
+        if((s[12]-'0')==sum)
+        cout<<"Right"<<endl;
+    else
+    s[12]=(sum+'0');
+    cout<<s<<endl;
+}
