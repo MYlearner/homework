@@ -1,0 +1,71 @@
+public class multi {
+ 
+ 
+	public static void main(String[] args) {
+		int a1[][]={{1,2,3},{4,5,6},{7,8,9}};
+ int b1[][]={{1,2,3},{4,5,6},{7,8,9}};
+ int[][] c1=new int[3][3];
+        /************矩阵乘法得到矩阵c**************/
+       for(int i = 0;i<a1.length;i++)
+       {
+    	   for(int j = 0;j<a1.length;j++)
+    	   {
+    		   for(int k = 0;k<a1.length;k++)
+    		   {
+    			   c1[i][j] += a1[i][k]*b1[k][j];
+    		   }
+    	   }
+       }
+       /************输出矩阵a的元素**************/
+       System.out.println("输出矩阵a1：");
+       for(int i = 0;i<a1.length;i++)
+       {
+    	   for(int j = 0;j<a1.length;j++)
+    	   {
+    		   System.out.printf("%d",a1[i][j]);
+    		   if(j == 4)
+    		   {
+    			   System.out.println();
+    		   }
+    		   else
+    		   {
+    			   System.out.print(",");
+    		   }
+    	   }
+       }
+       /************输出矩阵b的元素**************/
+       System.out.println("输出矩阵b1：");
+       for(int i = 0;i<b1.length;i++)
+       {
+    	   for(int j = 0;j<b1.length;j++)
+    	   {
+    		   System.out.printf("%d",b1[i][j]);
+    		   if(j == 4)
+    		   {
+    			   System.out.println();
+    		   }
+    		   else
+    		   {
+    			   System.out.print(",");
+    		   }
+    	   }
+       }
+       /************输出矩阵b的元素**************/
+       System.out.println("输出矩阵相乘得到的矩阵c1：");
+       for(int i = 0;i<c1.length;i++)
+       {
+    	   for(int j = 0;j<c1.length;j++)
+    	   {
+    		   System.out.printf("%d",c1[i][j]);
+    		   if(j == 4)
+    		   {
+    			   System.out.println();
+    		   }
+    		   else
+    		   {
+    			   System.out.print(",");
+    		   }
+    	   }
+       }
+	}
+}
